@@ -1,0 +1,13 @@
+# Import modules
+import arcpy
+from arcpy import env
+from arcpy.sa import * 
+
+# Set up working space (là folder sẽ save file sau extraction)
+env.workspace = "D:/MY DATA/SGU NCKH_NAM/TROPOSPHERIC NO2"
+
+# Extract raster by mask (VN_2011 là raster cần tách., Regions.shp là mask sẽ tách theo file này)
+outExtractByMask = ExtractByMask ("VN_2011", "Regions.shp")
+
+# Save file (ko cần làm bước này)
+outExtractByMask.save("D:/MY DATA/SGU NCKH_NAM/TROPOSPHERIC NO2/outExtractByMask")  
